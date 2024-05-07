@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+    border: 1px solid black;
+    width: 800px;
+    height: 700px;
+    background: white;
+    margin: auto;
+}
+
+.container:hover {
+    cursor: pointer;
+  }
