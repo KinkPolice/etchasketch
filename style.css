@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background-color: rgb(132, 196, 193);
+    background-color: rgb(255, 169, 174);
 }
 
 button {
@@ -25,4 +25,5 @@ button {
     width: 800px;
     height: 800px;
     margin: auto;
+    background-color: #e0e0e0;
 }
