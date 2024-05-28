@@ -5,6 +5,9 @@ const container = document.querySelector('.container');
 let color = "black"
 let cells = container.querySelectorAll('div');
 
+function changeColor(e){
+    e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
+}
 
 function createGrid(gridNumber) {
 /*default number of rows/culumns is set to 8*/
@@ -12,8 +15,6 @@ function createGrid(gridNumber) {
         gridNumber = 8;
 /*creating the grid with user-defined number of rows/columns if set */
   }else gridNumber = gridNumber
-
-        
 
         cells.forEach((div) => div.remove());
         container.style.gridTemplateColumns =`repeat(${gridNumber}, 1fr)`
@@ -31,6 +32,7 @@ function createGrid(gridNumber) {
                     cell.style.backgroundColor = color;
                 })
                 container.appendChild(cell)
+                cell.addEventListener('mouseover', changeColor);
         }
 }
 
@@ -42,11 +44,6 @@ boxes.forEach(box => box.addEventListener('mouseover', e.target.style.background
 createGrid(8);
 init
 
-function changeColor(){   
-    cell.addEventListener('mouseover', function(){ 
-        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-    })
-}
 
 
 
@@ -57,7 +54,6 @@ function changeColor(){
 
     colorButton.addEventListener('click', function(){
     color = 'random'
-    changeColor
     })
 
     setButton.addEventListener('click', function() {
