@@ -1,9 +1,26 @@
+
+
+
 const setButton = document.querySelector('#button-set')
 const clearButton = document.querySelector('#button-clear')
 const colorButton = document.querySelector('#button-color')
 const container = document.querySelector('.container');
 let color = "black"
+let input = 8
 let cells = container.querySelectorAll('div');
+
+
+
+
+
+function changeColor(e){  
+
+    if (color === 'black'){
+    e.target.style.backgroundColor = 'black'
+} if (color === 'random'){
+    e.target.style.backgroundColor = `hsl(${Math.random() *360}, 100%, 50%)`
+}
+}
 
 
 function createGrid(gridNumber) {
@@ -14,7 +31,7 @@ function createGrid(gridNumber) {
   }else gridNumber = gridNumber
 
         
-
+        container.replaceChildren()
         cells.forEach((div) => div.remove());
         container.style.gridTemplateColumns =`repeat(${gridNumber}, 1fr)`
         container.style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`
@@ -27,9 +44,7 @@ function createGrid(gridNumber) {
                 cell.classList.add('nextCell')
                 container.style.backgroundColor = '#e0e0e0'
                 cell.style.border = 'black solid 1px';
-                cell.addEventListener('mouseover', (event) =>{
-                    cell.style.backgroundColor = color;
-                })
+                cell.addEventListener('mouseover', changeColor)
                 container.appendChild(cell)
         }
 }
@@ -39,25 +54,18 @@ let boxes = document.querySelectorAll('.cells')
 boxes.forEach(box => box.addEventListener('mouseover', e.target.style.backgroundColor = 'e0e0e0')
 )}
 
-createGrid(8);
+createGrid(input);
 init
-
-function changeColor(){   
-    cell.addEventListener('mouseover', function(){ 
-        e.target.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`
-    })
-}
-
 
 
 
     clearButton.addEventListener('click', function(){
-        e.target.style.backgroundColor = 'e0e0e0'
+        let cells = container.querySelectorAll('div');
+        cells.forEach((div) => (div.style.backgroundColor = '#e0e0e0'));
     })
 
     colorButton.addEventListener('click', function(){
     color = 'random'
-    changeColor
     })
 
     setButton.addEventListener('click', function() {
