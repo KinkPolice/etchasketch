@@ -1,6 +1,3 @@
-
-
-
 const setButton = document.querySelector('#button-set')
 const clearButton = document.querySelector('#button-clear')
 const colorButton = document.querySelector('#button-color')
@@ -65,11 +62,17 @@ init
     })
 
     colorButton.addEventListener('click', function(){
-    color = 'random'
+        if (color === 'black'){
+                document.getElementById('button-color').innerHTML='Black color'
+                return color = 'random'
+        }if (color === 'random'){
+                document.getElementById('button-color').innerHTML='Rainbow colors'
+                return color = 'black'
+        }
     })
 
     setButton.addEventListener('click', function() {
-        let input = prompt('How big the grid should be?', 8)
+        let input = prompt('How big the grid should be?\(min 100\)', 8)
         if (typeof input <= 100 && typeof input === 'undefined'){
             return
         }

@@ -1,18 +1,30 @@
 body {
+    display: block;
     font-family: sans-serif;
     background-color: rgb(255, 169, 174);
+    display: block;
 }
 
 button {
-    display: block;
-    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    gap: 4px;
+    margin: 3px;
+    width: auto;
     height: 40px;
-    margin: 20px auto;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: sans-serif;
     font-size: 0.9em;
-    background-color: lightgray;
+    background-color: rgb(214, 214, 214);
     color: rgb(34, 34, 34);
+}
+
+.buttons{
+    display: grid;
+    flex-direction: row;
+    place-content: center;
+    align-items: center;
 }
 
 .container{
@@ -26,4 +38,12 @@ button {
     height: 800px;
     margin: auto;
     background-color: #e0e0e0;
+}
+
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
